@@ -48,7 +48,6 @@ async function rateConversation(conversationText) {
     output: output,
   };
 
-  // console.log("conversationData: ", conversationData);
   console.log(
     `\nConversation data: \n Rating: ${conversationData.rating}\n Cost: input: ${conversationData.input} tokens / output: ${conversationData.output} token(s)`
   );
