@@ -38,15 +38,20 @@ async function rateConversation(conversationText) {
     top_p: 1,
   });
 
-  const rating = response.choices[0].message;
-  const usage = response.usage;
+  const rating = response.choices[0].message.content;
+  const input = response.usage.prompt_tokens;
+  const output = response.usage.completion_tokens;
 
   const conversationData = {
     rating: rating,
-    usage: usage,
+    input: input,
+    output: output,
   };
 
-  console.log("data: ", conversationData);
+  // console.log("conversationData: ", conversationData);
+  console.log(
+    `\nConversation data: \n Rating: ${conversationData.rating}\n Cost: input: ${conversationData.input} tokens / output: ${conversationData.output} token(s)`
+  );
   return conversationData;
 }
 
